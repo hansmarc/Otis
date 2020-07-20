@@ -1,3 +1,3 @@
 # Otis
 
-Otis a dbf database browser tool for harbour, dbf, clipper, foxpro tables.
+Otis is a database table inspection tool for Dbase, Clipper, Harbour, xHarbour, FoxPro, …, files.
