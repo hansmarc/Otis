@@ -110,7 +110,7 @@ me some feedback.
 
 >**Table viewer tool called the 'Inspector' :**
 - Set a filter.
-- Show  hide deleted() records.
+- Show / Hide deleted() records.
 - Set / Clear a filelock.
 - Lock (freeze) columns on screen.
 - Show / Hide columns.
@@ -121,11 +121,11 @@ WHILE expressions.
 from one record to another record in the same table or\
 paste to another table.\
 All fields or a selection of fields.
-- Clear  Duplicate a record.
-- Add  Insert records.
-- Up  Down, moves a record physically.
-- Delete  Recall records with scope, for and while expressions.
-- Pack  Zap a table.
+- Clear / Duplicate a record.
+- Add / Insert records.
+- Up / Down, moves a record physically.
+- Delete / Recall records with scope, for and while expressions.
+- Pack / Zap a table.
 - Append a file.
 - Save a table to another table with the possibility to create a sub table.
 
