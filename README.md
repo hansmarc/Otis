@@ -1,6 +1,6 @@
 
-**What is OTIS**
-----------------
+# What is OTIS
+
 Otis is a database table inspection tool for Dbase, Clipper, Harbour,
 xHarbour, FoxPro, ..., files.
 
@@ -25,8 +25,7 @@ inspect on a regular base, save it, and reload all tables and index
 files with only one click. I can assure you, you will save a lot of
 clicks and time.
 
-**Why did i create this tool (or rather rewrote)**
---------------------------------------------------
+# Why did i create this tool (or rather rewrote)
 
 This is in reality a implementation of a old clipper tool that a wrote,
 i think, more than 20 years ago. But with far fewer possibilities as
@@ -54,7 +53,7 @@ very known, existing programs like dbu, dba, dbfview, mgdbu, \...etc. So
 i had to use one or more of them to view and or manipulate a dbf file. I
 don't want to say that those programs were bad, rather the contrary. I
 used them often, but i tried to regroup and integrate all possibilities
-of all those separated tools in a single new program. It is certainly
+of all those separated tools in a single program. It is certainly
 not perfect for everybody but i am open for suggestions.
 
 I borrowed some code from other dbfviewer programs that are in the
@@ -70,7 +69,7 @@ eye-catching. At first look all \"bells and whistles\" should be visible
 and my experience ( \>30 years ) showed me that the first user
 experience is very important for a program to be succesfull.
 
-And not to forget, i could always count on the clipperharbour community
+And not to forget, i could always count on the clipper harbour community
 if i had a question.
 
 So this is my way to contribute. It would be a pleasure if you dogive
@@ -78,66 +77,61 @@ me some feedback.
 
 **ENJOY**, i hope OTIS is of any use for you. Let me know ...
 
+# What can you do with Otis :
 
-**What can you do with Otis :**
--------------------------------
+>Support all Codepages known in Harbour.\
 
-Support all Codepages known in Harbour.\
-Support for the following RDD drivers :
+>Support for the following RDD drivers :
 - DBFCDX
 - DBFNTX
 - DBFNSX
 - SIXCDX
 - LETODBF
 
-**Dataset manager (main screen) :**
+>**Dataset manager (main screen) :**
 
 - Open tables, multiselect and AutoOpen (cdx) support.
 - Attach index files to a table, multiselect support.
 - Save multiple tables and index files in a Dataset.
 - Load a Dataset.
 
-**Table and index properties viewer :**
+>**Table and index properties viewer :**
 
 - Export structure to a .csv file.
-- Export structure to a .prg file. This prg can be used to create a
-- table and all orderindex files.
+- Export structure to a .prg file. This prg can be used to create a table and all order index files.
 - Export structure to the clipboard.
-- View table info : filename, date, reccount, used rdd, used codepage,
-- ...etc.
-- View index info : list of all index files, tags, filenames, key, for
-- and while expressions.
+- View table info : filename, date, reccount, used rdd, used codepage, ...etc.
+- View index info : list of all index files, tags, filenames, KEY, FOR and WHILE expressions.
 
-**Table structure editor :**
+>**Table structure editor :**
 - Create a new structure.
 - Modify a existing structure.
 - Import a table to use the structure for a new table.
 
-**Table viewer tool called the 'Inspector' :**
+>**Table viewer tool called the 'Inspector' :**
 - Set a filter.
 - Show  hide deleted() records.
-- Enable  disable a filelock.
+- Set / Clear a filelock.
 - Lock (freeze) columns on screen.
-- Show  Hide columns.
-- Search and replace data, file wide or fields only, with scope, for and
-- while expressions.
+- Show / Hide columns.
+- Search and replace data, file wide or fields only, with SCOPE, FOR and
+WHILE expressions.
 - Seek wizard.
-- Copy  paste a record :
-- from one record to another record in the same table.
-- paste to another table.
-- all fields or a selection of fields.
+- Copy / paste a record :\
+from one record to another record in the same table or\
+paste to another table.\
+All fields or a selection of fields.
 - Clear  Duplicate a record.
 - Add  Insert records.
 - Up  Down, moves a record physically.
 - Delete  Recall records with scope, for and while expressions.
 - Pack  Zap a table.
 - Append a file.
-- Save a table to another table with the possibility to create a sub
-- table.
+- Save a table to another table with the possibility to create a sub table.
 
-**Index manager :**
+>**Index manager :**
 
 - Create a new index, tag.
 - Delete a index, tag.
 - Reindex all orders.
-- View index info
+- View index info.
