@@ -79,7 +79,7 @@ me some feedback.
 
 ## What can you do with Otis :
 
->Support all Codepages known in Harbour.\
+>Support all Codepages known in Harbour.
 
 >Support for the following RDD drivers :
 - DBFCDX
