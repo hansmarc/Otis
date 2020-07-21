@@ -1,4 +1,5 @@
 
+
 **What is OTIS**
 
 Otis is a database table inspection tool for Dbase, Clipper, Harbour,
@@ -97,9 +98,9 @@ me some feedback.
 > Export structure to a .prg file. This prg can be used to create a
 > table and all order/index files.\
 > Export structure to the clipboard.\
-> View table info┬á: filename, date, reccount, used rdd, used codepage,
+> View table info : filename, date, reccount, used rdd, used codepage,
 > ...etc.\
-> View index info┬á: list of all index files, tags, filenames, key, for
+> View index info : list of all index files, tags, filenames, key, for
 > and while expressions.
 >
 > **Table structure editor :**
@@ -118,7 +119,7 @@ me some feedback.
 > Search and replace data, file wide or fields only, with scope, for and
 > while expressions.\
 > Seek wizard.\
-> Copy / paste a record┬á:\
+> Copy / paste a record :\
 > from one record to another record in the same table.\
 > paste to another table.\
 > all fields or a selection of fields.\
@@ -137,4 +138,3 @@ me some feedback.
 > Delete a index, tag.\
 > Reindex all orders.\
 > View index info.
-
