@@ -9,16 +9,16 @@ explanations.
 
 A **DATASET** is a set of ONE or MORE tables and index files. You can save
 this SET of files with a name and load it back again later on with only
-one click. You can whenever you want add / delete tables and index files
+one click. You can whenever you want add  delete tables and index files
 to a existing dataset and save it again with the same or another name.
 
 The dataset manager permits you to inspect tables when you are
 developing and testing a program without cycling through the classic
 operations like :
 
-> open table, open index file, inspect, modify, update, close\
-> open another table, open index file, inspect, close\
-> \...etc.
+- open table, open index file, inspect, modify, update, close
+- open another table, open index file, inspect, close
+- ...etc.
 
 Create simply a **dataset** with tables and index files that you want to
 inspect on a regular base, save it, and reload all tables and index
@@ -38,7 +38,7 @@ permits me, on site, to inspect, modify or repair data in a table at
 runtime on the fly in a simple and fast way. This without the necessity
 to install other external dbf viewer programs.
 
-In 'Plugin mode', you can use it also for runtime debugging / inspection
+In 'Plugin mode', you can use it also for runtime debugging  inspection
 of a table. Thus see \'almost\' life updates from the running program.
 No \'modal\' windows are used. By using this method, it permits you to
 switch between the running program and this tool when you want. You can
@@ -62,7 +62,7 @@ sample folders of hmgextended. All concerned parts of the program
 contains a remark and reference to the original source and author.
 
 Another reason.\
-I wanted to update/upgrade the visual design to a new level, like the
+I wanted to update / upgrade the visual design to a new level, like the
 win10 flat design. I don\'t like toolbars with a lot of pull-down menus.
 You have to click, click and click endless everywhere to discover what
 is possible. My opinion is that a userinterface should be clear and
@@ -70,72 +70,74 @@ eye-catching. At first look all \"bells and whistles\" should be visible
 and my experience ( \>30 years ) showed me that the first user
 experience is very important for a program to be succesfull.
 
-And not to forget, i could always count on the clipper/harbour community
+And not to forget, i could always count on the clipperharbour community
 if i had a question.
 
-So this is my way to contribute. It would be a pleasure if you do/give
+So this is my way to contribute. It would be a pleasure if you dogive
 me some feedback.
 
-**ENJOY** it, i hope OTIS is of any use for you. Let me know ...
+**ENJOY**, i hope OTIS is of any use for you. Let me know ...
 
 
 **What can you do with Otis :**
 -------------------------------
 
-> Support all Codepages known in Harbour.\
-> Support for the following RDD drivers, DBFCDX, DBFNTX, DBFNSX, SIXCDX,
-> LETODBF.
->
-> **Dataset manager (main screen) :**
->
-> Open tables, multiselect and AutoOpen (cdx) support.\
-> Attach index files to a table, multiselect support.\
-> Save multiple tables and index files in a Dataset.\
-> Load a Dataset.
->
-> **Table, index properties viewer :**
->
-> Export structure to a .csv file.\
-> Export structure to a .prg file. This prg can be used to create a
-> table and all order/index files.\
-> Export structure to the clipboard.\
-> View table info : filename, date, reccount, used rdd, used codepage,
-> ...etc.\
-> View index info : list of all index files, tags, filenames, key, for
-> and while expressions.
->
-> **Table structure editor :**
->
-> Create a new structure.\
-> Modify a existing structure.\
-> Import a table to use the structure for a new table.
->
-> **Table viewer tool called the 'Inspector' :**
->
-> Set a filter\
-> Show / hide deleted() records.\
-> Enable / disable a filelock.\
-> Lock (freeze) columns on screen.\
-> Show / Hide columns.\
-> Search and replace data, file wide or fields only, with scope, for and
-> while expressions.\
-> Seek wizard.\
-> Copy / paste a record :\
-> from one record to another record in the same table.\
-> paste to another table.\
-> all fields or a selection of fields.\
-> Clear / Duplicate a record.\
-> Add / Insert records.\
-> Up / Down, moves a record physically.\
-> Delete / Recall records with scope, for and while expressions.\
-> Pack / Zap a table.\
-> Append a file.\
-> Save a table to another table with the possibility to create a sub
-> table.
->
-> **Index manager :**
->
-> Create a new index, tag.\
-> Delete a index, tag.\
-> Reindex all orders.\
-> View index info.
+Support all Codepages known in Harbour.\
+Support for the following RDD drivers :
+- DBFCDX
+- DBFNTX
+- DBFNSX
+- SIXCDX
+- LETODBF
+
+**Dataset manager (main screen) :**
+
+- Open tables, multiselect and AutoOpen (cdx) support.
+- Attach index files to a table, multiselect support.
+- Save multiple tables and index files in a Dataset.
+- Load a Dataset.
+
+**Table and index properties viewer :**
+
+- Export structure to a .csv file.
+- Export structure to a .prg file. This prg can be used to create a
+- table and all orderindex files.
+- Export structure to the clipboard.
+- View table info : filename, date, reccount, used rdd, used codepage,
+- ...etc.
+- View index info : list of all index files, tags, filenames, key, for
+- and while expressions.
+
+**Table structure editor :**
+- Create a new structure.
+- Modify a existing structure.
+- Import a table to use the structure for a new table.
+
+**Table viewer tool called the 'Inspector' :**
+- Set a filter.
+- Show  hide deleted() records.
+- Enable  disable a filelock.
+- Lock (freeze) columns on screen.
+- Show  Hide columns.
+- Search and replace data, file wide or fields only, with scope, for and
+- while expressions.
+- Seek wizard.
+- Copy  paste a record :
+- from one record to another record in the same table.
+- paste to another table.
+- all fields or a selection of fields.
+- Clear  Duplicate a record.
+- Add  Insert records.
+- Up  Down, moves a record physically.
+- Delete  Recall records with scope, for and while expressions.
+- Pack  Zap a table.
+- Append a file.
+- Save a table to another table with the possibility to create a sub
+- table.
+
+**Index manager :**
+
+- Create a new index, tag.
+- Delete a index, tag.
+- Reindex all orders.
+- View index info
