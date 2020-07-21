@@ -1,12 +1,11 @@
 
-
 **What is OTIS**
-
+----------------
 Otis is a database table inspection tool for Dbase, Clipper, Harbour,
 xHarbour, FoxPro, ..., files.
 
 Otis has a integrated **DATASET** **manager**. This need some
-explanations.\
+explanations.
 
 A **DATASET** is a set of ONE or MORE tables and index files. You can save
 this SET of files with a name and load it back again later on with only
@@ -27,6 +26,7 @@ files with only one click. I can assure you, you will save a lot of
 clicks and time.
 
 **Why did i create this tool (or rather rewrote)**
+--------------------------------------------------
 
 This is in reality a implementation of a old clipper tool that a wrote,
 i think, more than 20 years ago. But with far fewer possibilities as
@@ -80,12 +80,13 @@ me some feedback.
 
 
 **What can you do with Otis :**
+-------------------------------
 
 > Support all Codepages known in Harbour.\
 > Support for the following RDD drivers, DBFCDX, DBFNTX, DBFNSX, SIXCDX,
 > LETODBF.
 >
-> **Dataset manager┬á(main screen) :**
+> **Dataset manager (main screen) :**
 >
 > Open tables, multiselect and AutoOpen (cdx) support.\
 > Attach index files to a table, multiselect support.\
