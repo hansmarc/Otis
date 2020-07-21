@@ -1,5 +1,5 @@
 
-# What is OTIS
+## What is OTIS
 
 Otis is a database table inspection tool for Dbase, Clipper, Harbour,
 xHarbour, FoxPro, ..., files.
@@ -25,7 +25,7 @@ inspect on a regular base, save it, and reload all tables and index
 files with only one click. I can assure you, you will save a lot of
 clicks and time.
 
-# Why did i create this tool (or rather rewrote)
+## Why did i create this tool (or rather rewrote)
 
 This is in reality a implementation of a old clipper tool that a wrote,
 i think, more than 20 years ago. But with far fewer possibilities as
@@ -77,7 +77,7 @@ me some feedback.
 
 **ENJOY**, i hope OTIS is of any use for you. Let me know ...
 
-# What can you do with Otis :
+## What can you do with Otis :
 
 >Support all Codepages known in Harbour.\
 
