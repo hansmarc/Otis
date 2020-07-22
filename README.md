@@ -9,7 +9,7 @@ explanations.
 
 A **DATASET** is a set of ONE or MORE tables and index files. You can save
 this SET of files with a name and load it back again later on with only
-one click. You can whenever you want add  delete tables and index files
+one click. You can whenever you want add or delete tables and index files
 to a existing dataset and save it again with the same or another name.
 
 The dataset manager permits you to inspect tables when you are
@@ -119,10 +119,13 @@ me some feedback.
 - Show / Hide columns.
 - Search and replace data, file wide or fields only, with **SCOPE**, **FOR** and
 **WHILE** expressions.
-- Seek wizard.
+- Seek wizard :\
+Presents a form with all fields used in the index KEY expression and auto fills the seek expression.\
+Seek first, Seek last and Set Exact on/off.\
+Copy the 'seek expression' to the 'filter expression' textbox so that you can use the same expression to filter a table. Example, seek the first record and then show only records with the same field contents.
 - Copy / paste a record :\
-from one record to another record in the same table or\
-paste to another table.\
+Paste a record to another record in the same table or\
+Paste to another table.\
 All fields or a selection of fields.
 - Clear / Duplicate a record.
 - Add / Insert records.
