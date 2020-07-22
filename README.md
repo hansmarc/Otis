@@ -1,7 +1,7 @@
-
 ## What is OTIS
 
-Otis is a database table inspection tool for Dbase, Clipper, Harbour,
+Otis stands for '**O**pen **T**able **I**n**S**pector' and is a 
+database table inspection tool for Dbase, Clipper, Harbour,
 xHarbour, FoxPro, ..., files.
 
 Otis has a integrated **DATASET** **manager**. This need some
@@ -81,12 +81,15 @@ me some feedback.
 
 >Support all Codepages known in Harbour.
 
->Support for the following RDD drivers :
-- DBFCDX
-- DBFNTX
-- DBFNSX
-- SIXCDX
-- LETODBF
+>Support for the following RDD drivers :\
+
+    DBFCDX
+    DBFNTX
+    DBFNSX
+    SIXCDX
+    LETODBF
+
+    You can use a mix of rdd drivers in the same dataset.
 
 >**Dataset manager (main screen) :**
 
@@ -101,7 +104,7 @@ me some feedback.
 - Export structure to a .prg file. This prg can be used to create a table and all order index files.
 - Export structure to the clipboard.
 - View table info : filename, date, reccount, used rdd, used codepage, ...etc.
-- View index info : list of all index files, tags, filenames, KEY, FOR and WHILE expressions.
+- View index info : list of all index files, tags, filenames, **KEY**, **FOR** and **WHILE** expressions.
 
 >**Table structure editor :**
 - Create a new structure.
@@ -114,8 +117,8 @@ me some feedback.
 - Set / Clear a filelock.
 - Lock (freeze) columns on screen.
 - Show / Hide columns.
-- Search and replace data, file wide or fields only, with SCOPE, FOR and
-WHILE expressions.
+- Search and replace data, file wide or fields only, with **SCOPE**, **FOR** and
+**WHILE** expressions.
 - Seek wizard.
 - Copy / paste a record :\
 from one record to another record in the same table or\
@@ -124,7 +127,7 @@ All fields or a selection of fields.
 - Clear / Duplicate a record.
 - Add / Insert records.
 - Up / Down, moves a record physically.
-- Delete / Recall records with scope, for and while expressions.
+- Delete / Recall records with **SCOPE**, **FOR** and **WHILE** expressions.
 - Pack / Zap a table.
 - Append a file.
 - Save a table to another table with the possibility to create a sub table.
