@@ -27,7 +27,7 @@ clicks and time.
 
 ## Why did i create this tool (or rather rewrote)
 
-This is in reality a implementation of a old clipper tool that a wrote,
+This is in reality a implementation of a old clipper tool that i wrote,
 i think, more than 20 years ago. But with far fewer possibilities as
 this new tool that i called Otis. We integrated this module (the old
 tool) in all our programs and protect it, if necessary, with a password.
