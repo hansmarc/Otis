@@ -2,8 +2,41 @@
 --------------------------------------------------------------------------------------------------
 Changelog file : OTIS, Open Table InSpector
 Author         : Hans Marc (Belgium)
-Latest update  : 22-07-2020
+Latest update  : 01-08-2020
 --------------------------------------------------------------------------------------------------
+
+01-08-2020  : OTIS V1.10 b03
+----------------------------
+
+Bug   :  You get multiple runtime errors if you run Otis.exe from a different location
+         if you right clicked, by example, on a table file to 'open' it.
+         Reason, Otis used getcurrentfolder() for the location of the ini file.
+         We now use hb_dirbase().
+         Suggestion proposed by Mario (mhsabado).
+
+New   :  Connexion info LetoDbf rdd
+         Added server mode info with LETO_GETSERVERMODE()
+
+New   :  Otis as default windows program to open tables in explorer.
+         Default rdd driver is always DBXCDX.
+
+New   :  Command line option :
+         Otis table1.dbf, table2.dbf, table3.dbf, ...etc.
+         or
+         Otis table1.dbf table2.dbf table3.dbf ...etc
+         will add all the specified tables to a new dataset.
+
+Modif :  'LetoDbf server'
+         Click 'Add table' with LetoDbf rdd activated.
+         Some letoDbf servers return a 'Undefined' variable with the leto_directory() function.
+         We still are searching for the reason.
+         It happens when we scan the 'root' directory to build a tree for the filepicker form.
+            code : aDir := leto_directory("\*.*", "D")
+                   if valtype(aDir) == "U"
+                   ....
+         Otis displays a message if this happens and longer quits with a error.
+         No subdirectories will be displayed in the "tree" control.
+         If you see this message please tell me what your server configuration is.
 
 
 22-07-2020  : OTIS V1.10 b02
