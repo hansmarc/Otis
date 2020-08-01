@@ -5,6 +5,27 @@ Author         : Hans Marc (Belgium)
 Latest update  : 01-08-2020
 --------------------------------------------------------------------------------------------------
 
+01-08-2020  : OTIS V1.10 b04
+----------------------------
+
+Bug   :  'First start of Otis.exe'
+         1.There is no dataset table file Otis_ds.dbf if you start Otis for the first time in a folder.
+         Load a dbf in the dataset.
+         Exit the program. Otis asks if you want to save the changed dataset.
+         Otis exits with a error if you confirm because there is no dataset table.
+         This table is now created when you start Otis.
+         Before it was only created if you used menus 'save' or 'load' a dataset.
+
+         2. If you start Otis from a different location (see bug v1.10 b03)
+         and you start Otis for the first time than the name of the dataset
+         table OTIS_DS.DBF did not use hb_dirbase() or any other path.
+         This could result in a Dos error 5 because Otis tried to create the dataset
+         table in the current folder.
+
+Bug   :  'LetoDbf'
+         saving a table in the 'Inspector' didn't function when the letoDbf rdd was used.
+
+
 01-08-2020  : OTIS V1.10 b03
 ----------------------------
 
