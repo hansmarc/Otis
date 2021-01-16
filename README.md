@@ -1,6 +1,8 @@
 ## What is OTIS
 
-Otis stands for '**O**pen **T**able **I**n**S**pector' and is a 
+Version 2021.01
+
+Otis stands for '**O**pen **T**able **I**n**S**pector' and is a
 database table inspection tool for Dbase, Clipper, Harbour,
 xHarbour, FoxPro, ..., files.
 
@@ -9,12 +11,10 @@ explanations.
 
 A **DATASET** is a set of ONE or MORE tables and index files. You can save
 this SET of files with a name and load it back again later on with only
-one click. You can whenever you want add or delete tables and index files
+one click. You can anytime you want add or delete tables and index files
 to a existing dataset and save it again with the same or another name.
 
-The dataset manager permits you to inspect tables when you are
-developing and testing a program without cycling through the classic
-operations like :
+The dataset manager permits you to inspect tables when you are developing and testing a program without cycling through the classic operations like :
 
 - open table, open index file, inspect, modify, update, close
 - open another table, open index file, inspect, close
@@ -23,7 +23,7 @@ operations like :
 Create simply a **dataset** with tables and index files that you want to
 inspect on a regular base, save it, and reload all tables and index
 files with only one click. I can assure you, you will save a lot of
-clicks and time.
+time and many mouse clicks.
 
 ## Why did i create this tool (or rather rewrote)
 
@@ -72,7 +72,7 @@ experience is very important for a program to be succesfull.
 And not to forget, i could always count on the clipper harbour community
 if i had a question.
 
-So this is my way to contribute. It would be a pleasure if you dogive
+So this is my way to contribute. It would be a pleasure if you do give
 me some feedback.
 
 **ENJOY**, i hope OTIS is of any use for you. Let me know ...
@@ -93,10 +93,45 @@ me some feedback.
 
 >**Dataset manager (main screen) :**
 
-- Open tables, multiselect and AutoOpen (cdx) support.
+- Open tables, multiselect with index AutoOpen (cdx) support.
 - Attach index files to a table, multiselect support.
 - Save multiple tables and index files in a Dataset.
 - Load a Dataset.
+
+>**Table viewer tool called the 'Inspector' :**
+- Select a index / order.  ( Other options see index manager below. )
+- Set a filter.
+- Show / Hide deleted() records.
+- Set / Clear a filelock.
+ - Lock (freeze) columns on screen.
+- Show / Hide columns.
+- Search and replace data, file wide or fields only, with **SCOPE**, **FOR** and
+**WHILE** expressions.
+- Seek wizard :\
+Presents a form with all fields used in the index KEY expression and autofills the seek expression.\
+Seek first, Seek last and Set Exact on/off.\
+Copy the 'seek expression' to the 'filter expression' textbox so that you can use the same expression to filter a table. Example, seek the first record and then show only records with the same field contents.
+- Copy / paste a record :\
+Paste a record to another record in the same table or\
+Paste to another table.\
+All fields or only a selection of fields in function of there visibility.
+- Clear a record.
+- Duplicate a record.\
+Otis keeps into account the visibility of the columns/fields.
+- Add / Insert records, one or more records at once.
+- Up / Down, moves a record physically.
+- Delete / Recall records with **SCOPE**, **FOR** and **WHILE** expressions.
+- Pack / Zap a table.
+- Append a file.
+- Save a table to another table with the possibility to create a sub table.\
+When a table is saved Otis takes into account active filters, index/orders and saves only visible fields. This permits to create a sub table with only the fields and data that you want.
+
+>**Index manager :**
+
+- Create a new index, single or compound index files.
+- Delete a index, tag.
+- Reindex all orders.
+- View detailed index info with the possibility to copy this info to the clipboard.
 
 >**Table and index properties viewer :**
 
@@ -109,35 +144,4 @@ me some feedback.
 >**Table structure editor :**
 - Create a new structure.
 - Modify a existing structure.
-- Import a table to use the structure for a new table.
-
->**Table viewer tool called the 'Inspector' :**
-- Set a filter.
-- Show / Hide deleted() records.
-- Set / Clear a filelock.
-- Lock (freeze) columns on screen.
-- Show / Hide columns.
-- Search and replace data, file wide or fields only, with **SCOPE**, **FOR** and
-**WHILE** expressions.
-- Seek wizard :\
-Presents a form with all fields used in the index KEY expression and auto fills the seek expression.\
-Seek first, Seek last and Set Exact on/off.\
-Copy the 'seek expression' to the 'filter expression' textbox so that you can use the same expression to filter a table. Example, seek the first record and then show only records with the same field contents.
-- Copy / paste a record :\
-Paste a record to another record in the same table or\
-Paste to another table.\
-All fields or a selection of fields.
-- Clear / Duplicate a record.
-- Add / Insert records.
-- Up / Down, moves a record physically.
-- Delete / Recall records with **SCOPE**, **FOR** and **WHILE** expressions.
-- Pack / Zap a table.
-- Append a file.
-- Save a table to another table with the possibility to create a sub table.
-
->**Index manager :**
-
-- Create a new index, tag.
-- Delete a index, tag.
-- Reindex all orders.
-- View index info.
+- Import a existing table structure to create a new table.
