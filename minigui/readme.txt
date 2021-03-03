@@ -1,6 +1,6 @@
 Date  : 03/03/2021
 
-This zip file contains all files and folders to compile and create :
+This zip file contains all files and folders to compile and create with 'MINIGUI' :
     Otis.exe
     Otis.lib
 
