@@ -17,12 +17,12 @@ You find following files :
                   
     compile.bat   to create Otis.exe
     
-    folder \test  contains a small program to test Otis.lib in plugin mode.
+    folder \test  contains a small test program with Otis.lib in plugin mode.
                   This is the folder that Grigory created before in a previous release of minigui.
 
     changelog.txt The same as in the root of github.
     
-    others files necessary to compile and link Otis.
+    ... others files necessary to compile and link Otis.
                   
 Enjoy.
 Hans
