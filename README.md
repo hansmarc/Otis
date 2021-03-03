@@ -1,6 +1,6 @@
 ## What is OTIS
 
-Version 2021.01
+Version 1.20 b01 (01/03/2021)
 
 Otis stands for '**O**pen **T**able **I**n**S**pector' and is a
 database table inspection tool for Dbase, Clipper, Harbour,
@@ -81,7 +81,7 @@ me some feedback.
 
 >Support all Codepages known in Harbour.
 
->Support for the following RDD drivers :\
+>Support for the following RDD drivers :
 
     DBFCDX
     DBFNTX
@@ -132,11 +132,12 @@ When a table is saved Otis takes into account active filters, index/orders and s
 - Delete a index, tag.
 - Reindex all orders.
 - View detailed index info with the possibility to copy this info to the clipboard.
+- Create a prg file with the creation of the table and index files with the table properties viewer.
 
 >**Table and index properties viewer :**
 
 - Export structure to a .csv file.
-- Export structure to a .prg file. This prg can be used to create a table and all order index files.
+- Export to a .prg file. This prg contains all functions to create the table and all index files.
 - Export structure to the clipboard.
 - View table info : filename, date, reccount, used rdd, used codepage, ...etc.
 - View index info : list of all index files, tags, filenames, **KEY**, **FOR** and **WHILE** expressions.
