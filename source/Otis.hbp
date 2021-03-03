@@ -1,0 +1,18 @@
+#
+# Otis.hbp
+#
+-hblib
+-inc
+-workdir=../../lib/hbmk/obj
+
+-o../../harbour/lib/Otis
+
+-I../../include
+
+-warn=max
+
+-w3 -es2 -ko -q0
+
+#{bcc}-hbx=../../include/bostaurus.hbx
+
+Otis.prg

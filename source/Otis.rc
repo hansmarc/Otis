@@ -1,0 +1,36 @@
+//
+// OTIS
+//
+// picture formats accepted, BITMAP, PNG, ICON, JPG, GIF
+
+1 VERSIONINFO
+FILEVERSION 1,0,8,0
+PRODUCTVERSION 1,0,0,0
+FILEOS 0x4
+FILETYPE 0x1
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "040904b0"
+  {
+   VALUE "FileDescription", "Otis database viewer tool\000"
+   VALUE "FileVersion", "1.1.0.0"
+   VALUE "InternalName", "Otis\000"
+   VALUE "LegalCopyright", "Copyright © 2020-2020 HansMarc\000"
+   VALUE "LegalTrademarks", "Harbour"
+   VALUE "OriginalFilename", "Otis.EXE"
+   VALUE "CompanyName", "HansMarc-Software"
+   VALUE "ProductName", "Otis\000"
+   VALUE "ProductVersion", "1.1.0.0"
+   VALUE "Comments", "Created by Hans Marc\000"
+  }
+}
+
+BLOCK "VarFileInfo"
+{
+ VALUE "Translation", 0x0409, 1252
+ }
+}
+
+// exe
+MAINICON                   ICON     resources\Otis5.ico
