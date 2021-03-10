@@ -6,9 +6,7 @@ This zip file contains all files and folders to compile and create with 'MINIGUI
     Otis.lib
 
 There is already a Otis folder in the \minigui\sample\advanced\Otis folder created by Grigory Filatov 
-in a previous release of minigui.
-
-Replace the folder by this zip file.
+in a previous release of minigui. Replace this folder with the contents of this zip file.
 
 You find following files :
 
