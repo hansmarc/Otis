@@ -1,6 +1,6 @@
 ## What is OTIS
 
-Version 1.20 b01 (01/03/2021)
+Version 1.21 b01 (06/05/2021)
 
 Otis stands for '**O**pen **T**able **I**n**S**pector' and is a
 database table inspection tool for Dbase, Clipper, Harbour,
@@ -146,3 +146,4 @@ When a table is saved Otis takes into account active filters, index/orders and s
 - Create a new structure.
 - Modify a existing structure.
 - Import a existing table structure to create a new table.
+- Support for all field types included **Extended** field types.
