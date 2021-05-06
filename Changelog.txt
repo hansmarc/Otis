@@ -2,8 +2,93 @@
 --------------------------------------------------------------------------------------------------
 Changelog file : OTIS, Open Table InSpector
 Author         : Hans Marc (Belgium)
-Latest update  : 01-03-2021
+Version        : 1.21 b01
+Latest update  : 06-05-2021
 --------------------------------------------------------------------------------------------------
+
+
+First of all : THANKS for all your positive remarks, suggestions and bug reports.
+
+
+06/05/2021  : OTIS V1.21 b01
+----------------------------
+
+New   : 'Structure Editor'
+        Extended field types are integrated.
+        Suggestion by DFPRO (Daniele), see https://groups.google.com/g/minigui-forum/c/3obQ4K8Zg60
+
+        I am not sure that all types are implemented because documentation is difficult to find and
+        there are sometimes differences between them. Ex. Blob, Picture fields, ...etc.
+
+        Details field types see below or click on the '? Field Types' button when you edit, insert or append a field.
+
+            Source, see sample in C:\MiniGUI\SAMPLES\BASIC\ExFldTps
+
+            Standard field types
+            ----------------------
+              Code	Type	        Width		        Description
+              -----	----------	-----------------       ---------------------------------------------------------------
+              C	   Character	        1...65534               Character
+              N	   Numeric	        1...32                  Numeric
+              D	   Date	                8,3,4		        Date, 8 standard, 3 and 4 extended
+              L	   Logical	        1		        Logical
+              M	   Memo	                4 or 10		        Memo, 10 standard, 4 extended
+
+            Extended field types
+            ----------------------
+              Code	Type	        Width		        Description
+              -----	----------	-----------------	---------------------------------------------------------------
+              +	        AutoInc 	4		        Auto increment
+              =	        ModTime 	8		        Last modified date & time of this record
+              ^	        RowVers 	8		        Row version number, modification count of this record
+              @	        DayTime 	8		        Date & Time
+              T	        Time    	4		        Only time (use @ for Date and Time)
+              I	        Integer 	1, 2,3, 4 or 8	        Signed Integer
+              V	        Variant 	3, 4, 6...254           Variable type Field
+              Y	        Currency	8		        Converted to a 64 bit integer (I) with implied 4 decimal
+              B	        Double  	8		        Floating point / 64 bit binary
+
+
+        ATTENTION : There is probably a bug in the rdd driver but i am not sure !!!
+                    When you create a field of type 'Y-Currency' it is converted by dbcreate() to a 'Integer 8 with 4 decimals'.
+                    When you try to modify or save new data in it a runtime error 'DBFCDX 1021 data width' error appears.
+                    This error appears also in sample C:\MiniGUI\SAMPLES\BASIC\ExFldTps.
+                    No time to investigate so no solution for the moment.
+
+New   : 'Structure Editor'
+        Added, 'Enter' key is the same as the 'Apply' button.
+        It is no longer necessary to click with the mouse on the 'Apply' button for each new
+        or modified field and thus much easier to enter a serie of new field.
+
+New   : 'Settings'
+        New setting, LOCKING SCHEME, 0...6.
+        A new menu button '? Lock schemes' with info is available.
+        Only used when in 'Standalone' mode. In 'plugin' (.lib) mode your program settings ar used.
+
+Modif : 'General'
+        The alias name in the Dataset is no longer suffixed with the area number when in 'StandAlone' mode.
+        Ex. table name is 'Invoice.dbf', the alias name will also be 'Invoice' and no longer 'Invoice_1'.
+        Asked by 'Ash'.
+
+        Exception, in the following cases the alias WILL be suffixed with the area number to prevent conflicts.
+            1. It could be that you want to compare 2 or more files with the same name but in a different folders.
+            2. you open the same file 2 or more times (non exclusive) to inspect data in different records.
+
+        Simply, if you open a file with a name that is already used as Alias than the 2nd, 3th, ...,
+        one will be suffixed with the area number. We need all the time a unique alias name.
+
+Modif : 'General'
+        The OTIS_DS.DBF structure has changed.
+        The field 'FILENAME' containing the path and filename is updated from 50 chars to 250 chars.
+        Remark, the old file is not updated automatically.
+
+Modif : 'General'
+        Some error trapping improvements when opening files.
+        ex. Dos Error 32, error message is expanded with text 'file is probably readonly'
+
+Bug   : 'General'
+        If a table is opened by double clicking on it a 'DOS Error 3' message
+        was displayed when spaces are used in the path name.
 
 
 01-03-2021  : OTIS V1.20 b01
