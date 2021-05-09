@@ -1,6 +1,6 @@
 ## What is OTIS
 
-Version 1.21 b01 (06/05/2021)
+Version 1.22 b01 (09/05/2021)
 
 Otis stands for '**O**pen **T**able **I**n**S**pector' and is a
 database table inspection tool for Dbase, Clipper, Harbour,
