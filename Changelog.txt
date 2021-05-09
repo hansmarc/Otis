@@ -1,13 +1,23 @@
-
 --------------------------------------------------------------------------------------------------
 Changelog file : OTIS, Open Table InSpector
 Author         : Hans Marc (Belgium)
-Version        : 1.21 b01
-Latest update  : 06-05-2021
+Version        : 1.22 b01
+Latest update  : 09-05-2021
 --------------------------------------------------------------------------------------------------
 
 
 First of all : THANKS for all your positive remarks, suggestions and bug reports.
+
+
+09/05/2021  : OTIS V1.22 b01
+----------------------------
+
+Bug   : 'Structure Editor'
+        Small bug when loading a existing table with extended fields.
+        All type of fields that exists with different length, ex. I1, I2, I3, ..., where misinterpreted.
+        They all loaded with type 'I1'. The same for type 'V'.
+        The same happend when a field was modified.
+
 
 
 06/05/2021  : OTIS V1.21 b01
