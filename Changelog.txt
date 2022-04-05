@@ -1,12 +1,79 @@
+
 --------------------------------------------------------------------------------------------------
 Changelog file : OTIS, Open Table InSpector
 Author         : Hans Marc (Belgium)
-Version        : 1.22 b01
-Latest update  : 09-05-2021
+First version  : 22-06-2020
+Last version   : 1.30 b01
+Latest update  : 01-04-2022
 --------------------------------------------------------------------------------------------------
 
 
 First of all : THANKS for all your positive remarks, suggestions and bug reports.
+
+
+01/04/2022  : OTIS V1.30 b01
+----------------------------
+
+
+New   : 'Inspector'
+        Add button 'Struct.Editor'. This permits to change the structure of the opened table.
+        The "Struct.Editor" is FILLED with the structure of the opened table.
+        You can save the structure to a new table,
+        or
+        to the same table name that is currently open in the "Inspector".
+        In that case the the current opened table will be closed, renamed to *.bak, a new table is created with
+        the same name as the original one and data will be appended from the old table.
+        Memo files .dbf, .fpt and .smt are also recreated and filled with the original data.
+        All 'cdx' index tags are recreated and updated if the table and index file have the same name.
+        Permits thus a runtime/life structure modification/update of a table that was opened in the 'Inspector'.
+
+New   : 'Structure Editor'
+        Added a new help button with 'Table size limits' info.
+        Remember there is already a 'Field types' help screen.
+        Inspired by a forum article https://groups.google.com/g/harbour-users/c/6OMr1jztPME from Ivanil.
+
+Modif : 'Structure Editor'
+        Changed handling buttons "Save As" and "Cancel" to "Save As" and "Quit'
+        The handling when closing the editor was not correct and modifications of a structure where lost and not saved.
+        This permits also to use 'Save as" multiple times before 'Quit' if you want to save the
+        same structure with different filenames.
+
+Remark: 'Structure Editor'
+        1. A empty structure is opened if you start the 'Struct.Editor' from de 'Dataset manager'.
+        2. If you start it from the 'Inspector' than the structure editor will be filled with the current opened table.
+           When you save the new structure into a file with the same name than all data is append into the new structure.
+        3. The Editor can NOT be used when in 'Plugin mode'.
+           This to prevent that you modify a structure that is opened by your running program and also in a 'Ghost' area in Otis.
+
+New   : Auto REOPEN in 'Exclusive' when you execute a operation that needs this mode in a table previous opened in 'Shared' mode.
+        This 'new' is only applicable when you open a table in command line mode or file double click mode.
+        A 'impossible' message is displayed if you try to execute a function like pack/zap/reindex/insert/...etc
+        on a table that was opened in SHARED mode. Remember those functions needs EXCLUSIVE mode.
+        Otis asks if you want to try to reopen the table in EXCLUSIVE mode and if succesfull execute pack/zap/...
+        All table properties are restored in the browse table, recno(), filter, ordfocus, ...
+        Remember that you can define in the settings menu how files are opened shared/exclusive in command line mode.
+
+Modif : 'Dataset'
+        Improved error trapping when loading/adding table in a dataset.
+        You get a detailed warning when AutoOpen is enabled and when a unknown function
+        or variable is used in a index expression.
+
+Modif : 'Dataset'
+        A getfile() window is opened if you click on the 'Inspector" button when there are no tables in the dataset.
+        The seleted file or selected files will be added to the dataset.
+        (Before we displayed a message telling you that there were no tables in the dataset.)
+
+Modif : Invalid filelocking value/scheme.
+        A error message is displayed if a invalid filelocking scheme is defined in the ini file (manually)
+        The default scheme, type 4 (DB_DBFLOCK_HB32), will be used.
+
+Modif : Github synchronisation with modifications made by Grigory Filatov in Minigui V21.05 update 3, date 17-06-21.
+        Code cleaning to prevent warnings with hbmk2 -w2 option.
+
+Bug   : 'Inspector'
+        1. Program error if 'Paste' button was used before 'Copy' button.
+        2. Screen refresh of the table (tbrowse) was not always correct when a filter was cleared.
+        3. After changing index order the 'Vert Scrollbar' position and size was not adjusted.
 
 
 09/05/2021  : OTIS V1.22 b01
@@ -17,7 +84,6 @@ Bug   : 'Structure Editor'
         All type of fields that exists with different length, ex. I1, I2, I3, ..., where misinterpreted.
         They all loaded with type 'I1'. The same for type 'V'.
         The same happend when a field was modified.
-
 
 
 06/05/2021  : OTIS V1.21 b01
@@ -36,27 +102,27 @@ New   : 'Structure Editor'
 
             Standard field types
             ----------------------
-              Code	Type	        Width		        Description
-              -----	----------	-----------------       ---------------------------------------------------------------
-              C	   Character	        1...65534               Character
-              N	   Numeric	        1...32                  Numeric
-              D	   Date	                8,3,4		        Date, 8 standard, 3 and 4 extended
-              L	   Logical	        1		        Logical
-              M	   Memo	                4 or 10		        Memo, 10 standard, 4 extended
+              Code   Type           Width             Description
+              -----  ----------     ----------------- ---------------------------------------------------------------
+              C      Character      1...65534         Character
+              N      Numeric        1...32            Numeric
+              D      Date           8,3,4             Date, 8 standard, 3 and 4 extended
+              L      Logical        1                 Logical
+              M      Memo           4 or 10           Memo, 10 standard, 4 extended
 
             Extended field types
             ----------------------
-              Code	Type	        Width		        Description
-              -----	----------	-----------------	---------------------------------------------------------------
-              +	        AutoInc 	4		        Auto increment
-              =	        ModTime 	8		        Last modified date & time of this record
-              ^	        RowVers 	8		        Row version number, modification count of this record
-              @	        DayTime 	8		        Date & Time
-              T	        Time    	4		        Only time (use @ for Date and Time)
-              I	        Integer 	1, 2,3, 4 or 8	        Signed Integer
-              V	        Variant 	3, 4, 6...254           Variable type Field
-              Y	        Currency	8		        Converted to a 64 bit integer (I) with implied 4 decimal
-              B	        Double  	8		        Floating point / 64 bit binary
+              Code   Type           Width             Description
+              -----  ----------     ----------------- ---------------------------------------------------------------
+              +      AutoInc        4                 Auto increment
+              =      ModTime        8                 Last modified date & time of this record
+              ^      RowVers        8                 Row version number, modification count of this record
+              @      DayTime        8                 Date & Time
+              T      Time           4                 Only time (use @ for Date and Time)
+              I      Integer        1, 2,3, 4 or 8    Signed Integer
+              V      Variant        3, 4, 6...254     Variable type Field
+              Y      Currency       8                 Converted to a 64 bit integer (I) with implied 4 decimal
+              B      Double         8                 Floating point / 64 bit binary
 
 
         ATTENTION : There is probably a bug in the rdd driver but i am not sure !!!
