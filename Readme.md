@@ -128,6 +128,7 @@ Otis keeps into account the visibility of the columns/fields.
 - Append a file.
 - Save a table to another table with the possibility to create a sub table.\
 When a table is saved Otis takes into account active filters, index/orders and saves only visible fields. This permits to create a sub table with only the fields and data that you want.
+- Structure Editor, to modify the structure of the current open table.
 
 >**Index manager :**
 
