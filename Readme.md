@@ -2,7 +2,7 @@
 Version 1.30 b01 (01/04/2021)
 
 <p align="center">
-<img src="Otis.png" style="width:100px">
+<img src="images\Otis.png" style="width:100px">
 </p>
 
 Otis stands for '**O**pen **T**able **I**n**S**pector' and is a
@@ -148,6 +148,6 @@ This prg contains a comment section and all statements to create the table and a
 
 >**Table structure editor :**
 - Create a new structure.
-- Modify a structure in the ‘Inspector’ of the opened file.
+- Modify a structure in the â€˜Inspectorâ€™ of the opened file.
 - Import a existing table structure to create a new table.
 - Support for all field types included **Extended** field types.
