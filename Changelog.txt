@@ -1,0 +1,555 @@
+
+--------------------------------------------------------------------------------------------------
+Changelog file : OTIS, Open Table InSpector
+Author         : Hans Marc (Belgium)
+First version  : 22-06-2020
+Last version   : 1.40 b01
+Latest update  : 01-09-2023
+--------------------------------------------------------------------------------------------------
+
+
+First of all : THANKS for all your positive remarks, suggestions and bug reports.
+
+
+01/09/2023  : OTIS V1.40 b01 (released)
+----------------------------
+
+New   : 'Inspector'
+        'F2' shortcut key toggles de 'Allow Edit' checkbox.
+        Why F2, because it is a standard windows key and used in some other window programs like Excel.
+
+New   : 'Inspector'
+        'F5' shortcut key to refresh the tbrowse table.
+        Added the function key 'F5' to refresh the tbrowse and a new button (labeled F5) to the right of the index combobox.
+        Why, suppose you open a table with Otis. Another program modifies this table, add, delete records, etc.
+        In the previous version the display was not refreshed with those new/deleted records if you clicked on the Inspector window.
+        You had to use close and reopen the table or use ctrl-Home, ctrl-pgdwn, ctrl-pgup, etc. to refresh the display.
+        *
+        The F5 key can also be used to refresh the tBrowse because another pc on a network could have modified the table.
+        Why F5, because it is a standard windows key and used in a lot of other window programs, explorer, internet browsers, ...etc.
+
+Modif : 'Table Inspector'
+        A split of buttons 'Search/Repl'.
+        The first one 'Search' is meanly used to search in a specific or all fields but can also be used to replace datas
+        in one field or all fields at the same time but is somewhat slower than the second 'Repl.' button
+        The second button 'Repl.' can only replace data in one field at a time but has some other options like :
+        replace data in a field with a value OR a expression, scope, for and while.
+
+Modif : 'Table Inspector'
+        When you change the 'SHOW DELETED' checkbox a message was displayed to warn you that this
+        is a global program setting and changing it could influence the running program.
+
+        This message is no longer shown when you are in 'standalone' mode.
+        This is logical because changing this setting does only influence tables that are fully under your control.
+
+Modif : 'Table Inspector'
+        'Set Filter'
+        The tbrowse table display was sometimes disturbed if you set/reset a filter.
+        The table sometimes splitted in two parts on the screen in function of the filter and the cursor position.
+        dbsetfilter() is replaced with a dedicated tbrowse function, browse:FilterData().
+        This function makes use of dbsetfilter() but refreshes also a lot of tbrowse internal vars and refreshes
+        the display correctly.
+
+BUG   : 'Structure Editor'
+        Bug exists since the previous version 1.30 b01, sorry.
+        When a NEW table was created in the structure editor starting with a empty table than a dbf file was created
+        without the 'Field' definition section.
+        Cause, a empty array was passed to DBCreate().
+        Remarque, strange that dbcreate() accept this situation and does not throw a error message or a run time error.
+
+
+01/04/2022  : OTIS V1.30 b01 (released)
+----------------------------
+
+New   : 'Inspector'
+        Add button 'Struct.Editor'. This permits to change the structure of the opened table.
+        The "Struct.Editor" is FILLED with the structure of the opened table.
+        You can save the structure to a new table,
+        or
+        to the same table name that is currently open in the "Inspector".
+        In that case the current opened table will be closed, renamed to *.bak, a new table is created with
+        the same name as the original one and data will be appended from the old table.
+        Memo files .dbf, .fpt and .smt are also recreated and filled with the original data.
+        All 'cdx' index tags are recreated and updated if the table and index file have the same name.
+        Permits thus a runtime/life structure modification/update of a table that was opened in the 'Inspector'.
+
+New   : 'Structure Editor'
+        Added a new help button with 'Table size limits' info.
+        Remember there is already a 'Field types' help screen.
+        Inspired by a forum article https://groups.google.com/g/harbour-users/c/6OMr1jztPME from Ivanil.
+
+Modif : 'Structure Editor'
+        Changed handling buttons "Save As" and "Cancel" to "Save As" and "Quit'
+        The handling when closing the editor was not correct and modifications of a structure where lost and not saved.
+        This permits also to use 'Save as" multiple times before 'Quit' if you want to save the
+        same structure with different filenames.
+
+Remark: 'Structure Editor'
+        1. A empty structure is opened if you start the 'Struct.Editor' from de 'Dataset manager'.
+        2. If you start it from the 'Inspector' than the structure editor will be filled with the current opened table.
+           When you save the new structure into a file with the same name than all data is append into the new structure.
+        3. The Editor can NOT be used when in 'Plugin mode'.
+           This to prevent that you modify a structure that is opened by your running program and also in a 'Ghost' area in Otis.
+
+New   : Auto REOPEN in 'Exclusive' when you execute a operation that needs this mode in a table previous opened in 'Shared' mode.
+        This 'new' is only applicable when you open a table in command line mode or file double click mode.
+        A 'impossible' message is displayed if you try to execute a function like pack/zap/reindex/insert/...etc
+        on a table that was opened in SHARED mode. Remember those functions needs EXCLUSIVE mode.
+        Otis asks if you want to try to reopen the table in EXCLUSIVE mode and if succesfull execute pack/zap/...
+        All table properties are restored in the browse table, recno(), filter, ordfocus, ...
+        Remember that you can define in the settings menu how files are opened shared/exclusive in command line mode.
+
+Modif : 'Dataset'
+        Improved error trapping when loading/adding a table in a dataset.
+        You get a detailed warning when AutoOpen is enabled and when a unknown function
+        or variable is used in a index expression.
+
+Modif : 'Dataset'
+        A getfile() window is opened if you click on the 'Inspector" button when there are no tables in the dataset.
+        The seleted file or selected files will be added to the dataset.
+        (Before we displayed a message telling you that there were no tables in the dataset.)
+
+Modif : Invalid filelocking value/scheme.
+        A error message is displayed if a invalid filelocking scheme is defined in the ini file (manually)
+        The default scheme, type 4 (DB_DBFLOCK_HB32), will be used.
+
+Modif : Github synchronisation with modifications made by Grigory Filatov in Minigui V21.05 update 3, date 17-06-21.
+        Code cleaning to prevent warnings with hbmk2 -w2 option.
+
+Bug   : 'Inspector'
+        1. Program error if 'Paste' button was used before 'Copy' button.
+        2. Screen refresh of the table (tbrowse) was not always correct when a filter was cleared.
+        3. After changing index order the 'Vert Scrollbar' position and size was not adjusted.
+
+
+09/05/2021  : OTIS V1.22 b01
+----------------------------
+
+Bug   : 'Structure Editor'
+        Small bug when loading a existing table with extended fields.
+        All type of fields that exists with different length, ex. I1, I2, I3, ..., where misinterpreted.
+        They all loaded with type 'I1'. The same for type 'V'.
+        The same happend when a field was modified.
+
+
+06/05/2021  : OTIS V1.21 b01
+----------------------------
+
+New   : 'Structure Editor'
+        Extended field types are integrated.
+        Suggestion by DFPRO (Daniele), see https://groups.google.com/g/minigui-forum/c/3obQ4K8Zg60
+
+        I am not sure that all types are implemented because documentation is difficult to find and
+        there are sometimes differences between them. Ex. Blob, Picture fields, ...etc.
+
+        Details field types see below or click on the '? Field Types' button when you edit, insert or append a field.
+
+            Source, see sample in C:\MiniGUI\SAMPLES\BASIC\ExFldTps
+
+            Standard field types
+            ----------------------
+              Code   Type           Width             Description
+              -----  ----------     ----------------- ---------------------------------------------------------------
+              C      Character      1...65534         Character
+              N      Numeric        1...32            Numeric
+              D      Date           8,3,4             Date, 8 standard, 3 and 4 extended
+              L      Logical        1                 Logical
+              M      Memo           4 or 10           Memo, 10 standard, 4 extended
+
+            Extended field types
+            ----------------------
+              Code   Type           Width             Description
+              -----  ----------     ----------------- ---------------------------------------------------------------
+              +      AutoInc        4                 Auto increment
+              =      ModTime        8                 Last modified date & time of this record
+              ^      RowVers        8                 Row version number, modification count of this record
+              @      DayTime        8                 Date & Time
+              T      Time           4                 Only time (use @ for Date and Time)
+              I      Integer        1, 2,3, 4 or 8    Signed Integer
+              V      Variant        3, 4, 6...254     Variable type Field
+              Y      Currency       8                 Converted to a 64 bit integer (I) with implied 4 decimal
+              B      Double         8                 Floating point / 64 bit binary
+
+
+        ATTENTION : There is probably a bug in the rdd driver but i am not sure !!!
+                    When you create a field of type 'Y-Currency' it is converted by dbcreate() to a 'Integer 8 with 4 decimals'.
+                    When you try to modify or save new data in it a runtime error 'DBFCDX 1021 data width' error appears.
+                    This error appears also in sample C:\MiniGUI\SAMPLES\BASIC\ExFldTps.
+                    No time to investigate so no solution for the moment.
+
+New   : 'Structure Editor'
+        Added, 'Enter' key is the same as the 'Apply' button.
+        It is no longer necessary to click with the mouse on the 'Apply' button for each new
+        or modified field and thus much easier to enter a serie of new field.
+
+New   : 'Settings'
+        New setting, LOCKING SCHEME, 0...6.
+        A new menu button '? Lock schemes' with info is available.
+        Only used when in 'Standalone' mode. In 'plugin' (.lib) mode your program settings ar used.
+
+Modif : 'General'
+        The alias name in the Dataset is no longer suffixed with the area number when in 'StandAlone' mode.
+        Ex. table name is 'Invoice.dbf', the alias name will also be 'Invoice' and no longer 'Invoice_1'.
+        Asked by 'Ash'.
+
+        Exception, in the following cases the alias WILL be suffixed with the area number to prevent conflicts.
+            1. It could be that you want to compare 2 or more files with the same name but in a different folders.
+            2. you open the same file 2 or more times (non exclusive) to inspect data in different records.
+
+        Simply, if you open a file with a name that is already used as Alias than the 2nd, 3th, ...,
+        one will be suffixed with the area number. We need all the time a unique alias name.
+
+Modif : 'General'
+        The OTIS_DS.DBF structure has changed.
+        The field 'FILENAME' containing the path and filename is updated from 50 chars to 250 chars.
+        Remark, the old file is not updated automatically.
+
+Modif : 'General'
+        Some error trapping improvements when opening files.
+        ex. Dos Error 32, error message is expanded with text 'file is probably readonly'
+
+Bug   : 'General'
+        If a table is opened by double clicking on it a 'DOS Error 3' message
+        was displayed when spaces are used in the path name.
+
+
+01-03-2021  : OTIS V1.20 b01
+----------------------------
+
+Bug   : LetoDbf RDD
+        The tree structure in the leto_get_file() function was not always correctly displayed
+        when you had a lot of subfolders.
+
+New   : 'Settings'
+        Two new checkboxes for the 'Command line' mode.
+        There is a checkbox for 'Autopen' mode and another for 'Exclusive' open mode.
+        Remark, these settings are only used if you open Otis with a table name on the command line
+        or when double clicking a table in Windows Explorer.
+
+Modif : It often happens that you want inspect a table when you are in windows Explorer
+        by double clicking on a file.
+        To speed up interaction we now open the 'Table Inspector' automatically if you double
+        click on a file and we quit Otis without asking to save settings and the dataset.
+        This saves a few mouse clicks and speeds up the inspection.
+
+        Before the table was added to the Dataset and you needed to click in the 'Inspector' button
+        to open it. Otis asked you also when you quit the program if you wanted to save the dataset.
+
+Bug   :  Double click on a table in windows "Explorer".
+         Otis could not open a table if the file name contained characters
+         that are not allowed in a 'Alias' name, ex. "-#%&{}<>*?/*!@" + "'" + '"'
+         All these characters are removed to obtain a valid 'alias' name.
+
+Modif :  'Dataset Manager'
+         Refresh number of records of a table after a ZAP or a PACK in the 'Inspector'.
+
+Added :  'Table Inspector'
+         Added a speed button 'Dataset mng' to return back to the Dataset Manager just above the 'Quit' button.
+
+Added :  'Table Inspector'
+         Added in "Order selection combobox" the order 'TAG' name just before the KEY and FOR clause.
+
+Modif :  'Table Inspector'
+         'Append file' added '*.*' as filemask for getfile() function.
+          Before only *.dbf files were available.
+
+Modif :  'Table Inspector'
+         To improve the user interface i added some 'setfocus' instructions to set focus back to
+         the browse table after using a option or menu.
+
+New   :  'Index wizard'
+         'NEW INDEX' added options UNIQUE, ASCENDING / DESCENDING
+
+New   :  'Index info window'
+         Added UNIQUE, ASCENDING / DESCENDING  status in the index info table.
+         Added the same options in the csv and prg export functions.
+
+Modif :  FOR, WHILE and EXPRESSION clause cleanup
+         Mostly, by habit, we hit the 'enter' key after introducing a expression.
+         Otis displayed a error message, 'Invalid expression', when executing them.
+         Sometimes my hair (the few that are still there) went 'grey' because i did
+         not understand or see where i made a failure. The problem was that you can
+         not see those trailing 'crlf' pairs.
+         *
+         Now Otis removes 'crlf' pairs and white space before evaluating them.
+         This has as side effect that you can thus, for readability reasons,
+         split those expressions in multiple lines.
+
+Modif :  'Structure Editor'
+         'Load structure' could not open a file if the activ rdd was 'LETO'.
+         Otis will use 'DBFCDX' by default if the current rdd is 'LETO'.
+
+Modif :  'Structure Editor'
+         Added '*.*' as filemask when saving a new table.
+BUG    : Correction to prevent that a field definition without a NAME could be created / inserted.
+
+Modif :  Change cursor to cursorwait() when the Dbeval() function is called for certain operations.
+         By this way you can see that a operation on a table is running specially on very large tables.
+
+
+01-08-2020  : OTIS V1.10 b04
+----------------------------
+
+Bug   :  'First start of Otis.exe'
+         1.There is no dataset table file Otis_ds.dbf if you start Otis for the first time in a folder.
+           Load a dbf in the dataset.
+           Exit the program. Otis asks if you want to save the changed dataset.
+           Otis exits with a error if you confirm because there is no dataset table.
+           This table is now created when you start Otis.
+           Before it was only created if you used menus 'save' or 'load' a dataset.
+
+         2.If you start Otis from a different location (see bug v1.10 b03)
+           and you start Otis for the first time than the name of the dataset
+           table OTIS_DS.DBF did not use hb_dirbase or any other path.
+           This could result in a Dos error 5 because Otis tried to create the dataset
+           table in the current folder.
+
+Bug   :  'LetoDbf'
+         saving a table in the 'Inspector' didn't function when the letoDbf rdd was used.
+
+
+01-08-2020  : OTIS V1.10 b03
+----------------------------
+
+Bug   :  You get multiple runtime errors if you run Otis.exe from a different location
+         if you right clicked, by example, on a table file to 'open' it.
+         Reason, Otis used getcurrentfolder() for the location of the ini file.
+         We now use hb_dirbase().
+         Suggestion proposed by Mario (mhsabado).
+
+New   :  Connexion info LetoDbf rdd
+         Added server mode info with LETO_GETSERVERMODE()
+
+New   :  Otis as default windows program to open tables in explorer.
+         Default rdd driver is always DBXCDX.
+
+New   :  Command line option :
+         Otis table1.dbf, table2.dbf, table3.dbf, ...etc.
+         or
+         Otis table1.dbf table2.dbf table3.dbf ...etc
+         will add all the specified tables to a new dataset.
+
+Modif :  'LetoDbf server'
+         Click 'Add table' with LetoDbf rdd activated.
+         Some letoDbf servers return a 'Undefined' variable with the leto_directory() function.
+         We still are searching for the reason.
+         It happens when we scan the 'root' directory to build a tree for the filepicker form.
+            code : aDir := leto_directory("\*.*", "D")
+                   if valtype(aDir) == "U"
+                   ....
+         Otis displays a message if this happens and longer quits with a error.
+         No subdirectories will be displayed in the "tree" control.
+         If you see this message please tell me what your server configuration is.
+
+
+22-07-2020  : OTIS V1.10 b02
+----------------------------
+
+Bug   :  'Otis.ini file'
+         Otis quits with a error after update because some new ini vars were not yet defined in the ini file.
+         Sorry.
+
+New   :  Menu 'Settings'
+         Added a 'Test conn. Leto' button to test the connexion with a LetoDbf server.
+
+
+
+17-07-2020  : OTIS V1.10 b01
+----------------------------
+
+New   :  'Otis manual.pdf' included in zip file.
+
+New   :  Added rdd driver LETODBF from Elchs (https://github.com/elchs/LetoDBf). (fork from Alexander Kresin LETODB.)
+         This is really a excellent client server solution. Thanks Elchs.
+
+Modif :  'Otis Dataset Manager'
+         The RDD driver name is also saved in the dataset for each individual opened table.
+         It is possible to use tables with a different RDD in the same dataset.
+         ex. local files with RDD DBFCDX and LetoDBf files with RDD LETO.
+
+Modif :  'Plugin mode'
+         A lot of modifications for "Plugin mode" of Otis.lib.
+         Please read included document 'Otis manual.pdf'.
+         Some remarks in it are very important.
+
+New   :  'Otis Dataset Manager'
+         Settings menu.
+         Used to define area numbers and LetoDbf server settings.
+
+New   :  'Otis Dataset Manager'
+         Update of columns 'F' filelock status,
+         'F' file is locked or loaded in excl. mode
+         'R' a record is locked.
+         'R+' multiple records are locked.
+
+Bug   :  'Otis Dataset Manager'
+         Otis exits with a error when you hit menu 'Remove Index' when there where no tables opened.
+
+Bug   :  'Otis Dataset Manager'
+         The table OTIS.DS.DBF could not be opened if another RDD was set than DBFCDX.
+         We now use the VIA clause to open this table.
+
+New   :  Some warning messages.
+
+New   :  REQUEST of all functions mentioned below. They could be used in a index expression.
+         ABS, ALLTRIM, AT, CHR, CTOD, CDOW, CMONTH, DATE, DAY, DELETED, DESCEND, DTOC, DTOS, DOW, ;
+         EMPTY, I2BIN, L2BIN, LEFT, LEN, LOWER, LTRIM, MAX, MIN, MONTH, OS, PAD, PADC, ;
+         PADL, PADR, RAT, RECNO, RIGHT, ROUND, RTRIM, SPACE, STOD, STR, STRZERO, ;
+         SUBSTR, REPLICATE, TIME, TRANSFORM, TRIM, UPPER, VAL, VALTYPE, YEAR,;
+         SOUNDEX
+
+New   :  All known codepages in Harbour are included now in Otis simply by including the file "hbextcdp.ch".
+         Suggestion from 'Ivo Fritz Hasse' who asked to add "PT850".
+
+New   :  Added RDD "SIXCDX".
+         Complete list of rdds loaded, "DBFCDX", "DBFNTX", "DBFNSX", "SIXCDX".
+
+Modif : Otis program icon has been changed. Much better i think.
+
+Modif :  'Table Inspector'
+         Otis show now the number of orders that are opened in the upper left label 'Orders (xx)'.
+         No longer necessary to open the combobox to see how many orders are opened.
+
+Modif :  'Table Inspector'
+         'Delete key' could already be used to Delete/Recall a record but
+         from this version this feature is only enabled if the checkbox 'Allow Edit' is checked.
+
+Corr. :  'Table Inspector'
+         Scope button and checkbox are disabled if there is no order/index selected.
+
+Corr. :  'Table Inspector'
+         The order combobox was not updated correctly when a new order tag was created.
+
+Modif :  'Table Properties'
+         Table Info text is reordered and some info is added, ex. used RDD driver.
+
+Corr. :  'Index Manager'
+         New index, the tag name can maximum be 10 characters.
+
+Corr. :  'Index Manager'
+         If one of the expressions failed a error message was displayed but afterwards
+         Otis tried nevertheless to create the new order.
+
+
+
+29-06-2020  : OTIS V1.00 b06
+----------------------------
+      New   : Otis main screen
+              Added option 'AutoOpen' orderbag files.
+              Attention only for CDX and NSX orderbag files. DBFNTX does not support this behaviour.
+              This checkbox will be 'checked' automatically if you choose DBFCDX or DBFNSX
+              and 'unchecked' if you choose DBFNTX.
+              Suggestion from 'Ash S'.
+
+      New   : 'Structure editor'
+              Added a new button to clear the structure list.
+
+      New   : 'Table Inspector'
+              Define a 'ORDER SCOPE' for the current activated order.
+              A scope can be set for each order individually.
+              You can enable / disable it with the scope checkbox.
+              When you want to clear a scope you have to reopen the scope editor form and use the 'Clear' button.
+              When you change the order the scope for this order is restored and if it not empty the scope checkbox will be
+              checked if there is a scope or unchecked if the scope is empty. A message is also displayed to remember
+              you that a scope is set and that maybe not all records are displayed.
+
+              ATTENTION : If you defined a scope but you change the checkbox to unchecked to temporary display all records
+                          without a scope, the scope will be lost if you change the order.
+              REMARK    : All scopes for all orders stay actif even if you close the 'Inspector' for a table.
+                          Thus when you reopen the 'Table Inspector' for the same table all scopes are restored.
+
+              Suggestion from 'Ash S'.
+
+      New   : 'Table Inspector'
+              A new checkbox 'FILELOCK' to place a file width lock until you uncheck it.
+              This filelock is not released by copy past, append insert or any other operations.
+              This can be usefull to prevent other instances to modify your table when you want to
+              execute multiple operations for updating / modifying the table.
+              Thus "while" and "between" your operations another instance can not modify the table.
+
+              This option is automatically checked if the option EXCLUSIVE mode is checked.
+              and can NOT be unchecked if the file was loaded in EXCLUSIVE mode.
+              The filelock is released when you close the table inspector for the table.
+
+              Remark : if a file is opened in shared mode (non exclusive) and even if this
+              option is not activated a recordlock or filelock and unlock will be placed automatically
+              before and after each operation like copy/paste/delete/recall, ...etc.
+              The only difference is that when this option is 'checked' that the file stays
+              all the time 'locked' until you uncheck it.
+
+      New   :  'Table Inspector'
+               New menus UP / DOWN.
+               Permits to push down or pull up a record to the next or previous physical record position.
+               It does a physical record swap. Only allowed when no order is actif.
+
+      Modif : 'Table Inspector'
+              Some menus have been repositionned to regroup record and file width operations.
+
+      Modif : 'Table Inspector'
+               The Copy / Paste menus copies and paste only data for visible columns (thus fields).
+               This permits to copy only certain fields from one record to another.
+               Uncheck 'Hide Columns' if all data from a record has to be copied / pasted.
+
+      Modif : Otis main screen
+              Menu 'Table properties' has moved up, it is now just below menu 'Table Inspector'
+              I think it has a better place there.
+
+      Modif : 'Table Inspector' sub menu 'Index Manager'
+              When you create a new order, the filename is automatically filled with a full path filename.
+              It takes the name of the orderbag file that is selected in the index info table so you can easily
+              add a new tag to it.
+              If there are no orders at all and you want to create the first one, than the orderbag name
+              is the same as the table name so you can open it later on with the 'AutoOpen' feature.
+
+      BUG   : 'Structure editor'
+              1. click 'Modify' or double click on a field name to modify a properties of a field
+              2. change a property like type, len but don't change the fieldname
+              3. Otis refused to save the modifications with error message "Fieldname exists already".
+
+26-06-2020  : OTIS V1.00 b05
+----------------------------
+      New   : 'Table Properties'
+              Added a button to copy the structure to the clipboard.
+              Asked by 'Paul Schlicher'.
+
+      Modif : 'Structure Editor'
+              added (*.* All files) when you want to load
+              the structure of a existing dbf table. For the same reason as below.
+              Some users change the extension '.dbf' to by example '.dat'.
+
+      Bug   : Otis exits with a error when we tried to load a dataset selected in the
+              most used combobox list that DID NOT EXIST ANYMORE.
+
+25-06-2020  : OTIS V1.00 b04
+----------------------------
+      Modif : Some users rename there ".DBF" to another extension ex. ".DAT"
+              Otis no longer verifies if the extension is ".DBF".
+              Any file can be loaded know.
+              I use error trapping everywhere with "Try and Catch" so if
+              a non dbf file is loaded a error message will be displayed.
+              Asked by 'Daniele Federico'.
+
+      Modif : Also added (*.* All files) when you want to load a index file.
+              By default Otis proposes the extension of the default RDD driver in use.
+              Attention, you can not load by example a .ntx file if you set DBFCDX
+              as default driver. A error message will be displayed in that case.
+
+25-06-2020  : OTIS V1.00 b03
+----------------------------
+      Added : Function DESCEND() is added as a EXTERNAL.
+              This function is sometimes used in a index KEY expression.
+              Otis refused to open the index file.
+              Problem reported by 'Marcelo Brigatti'.
+
+23-06-2020  : OTIS V1.00 b02
+----------------------------
+      Added : RDD driver selection combobox :
+              DBFCDX, DBFNTX, DBFNSX
+
+22-06-2020  : OTIS V1.00 b01
+----------------------------
+      First public release.
+
+
+31/03/2020  : Developpement started on 31/03/2020 while
+              the world was fighting the Corona virus.
