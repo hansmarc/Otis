@@ -1,5 +1,5 @@
 ## What is OTIS
-Version 1.30 b01 (01/04/2021)
+Version 1.40 b01 (01/09/2023)
 
 <p align="center">
 <img src="images\Otis.png" style="width:100px">
@@ -136,7 +136,6 @@ When a table is saved Otis takes into account active filters, index/orders and s
 - Delete a index, tag.
 - Reindex all orders.
 - View detailed index info with the possibility to copy this info to the clipboard.
-- Create a prg file with the creation of the table and index files with the table properties viewer.
 
 >**Table and index properties viewer :**
 
