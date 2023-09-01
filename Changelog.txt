@@ -30,8 +30,8 @@ New   : 'Inspector'
 
 Modif : 'Table Inspector'
         A split of buttons 'Search/Repl'.
-        The first one 'Search' is meanly used to search in a specific or all fields but can also be used to replace datas
-        in one field or all fields at the same time but is somewhat slower than the second 'Repl.' button
+        The first one 'Search' is meanly used to search in a specific or all fields but can also be used to replace data
+        in only one field or all fields at the same time but is somewhat slower than the second 'Repl.' button
         The second button 'Repl.' can only replace data in one field at a time but has some other options like :
         replace data in a field with a value OR a expression, scope, for and while.
 
