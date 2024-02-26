@@ -1,5 +1,5 @@
 ## What is OTIS
-Version 1.40 b01 (01/09/2023)
+Version 1.50 b01 (26/02/2024)
 
 <p align="center">
 <img src="images\Otis.png" style="width:100px">
@@ -126,13 +126,20 @@ Otis keeps into account the visibility of the columns/fields.
 - Delete / Recall records with **SCOPE**, **FOR** and **WHILE** expressions.
 - Pack / Zap a table.
 - Append a file.
+- Structure Editor, to modify the structure of open table if the one that is opened in the Inspector.
 - Save a table to another table with the possibility to create a sub table.\
-When a table is saved Otis takes into account active filters, index/orders and saves only visible fields. This permits to create a sub table with only the fields and data that you want.
-- Structure Editor, to modify the structure of the current open table.
+When a table is saved Otis takes into account active filters, index/orders and saves only visible fields.\
+ This permits to create a sub table with only the fields and data that you want.
+- Export to a ';' delimited csv file.\
+When a table is saved Otis takes into account active filters, index/orders and saves only visible fields.\
+This permits to create a sub table with only the fields and data that you want.\
+
+- When you set Otis.exe as the default windows program to open dbf files and double click on it, the main screen 'Dataset manager' of Otis will not be opened. 
 
 >**Index manager :**
 
 - Create a new index, single or compound index files.
+- Modify a existing index, tag.
 - Delete a index, tag.
 - Reindex all orders.
 - View detailed index info with the possibility to copy this info to the clipboard.
@@ -148,6 +155,6 @@ This prg contains a comment section and all statements to create the table and a
 
 >**Table structure editor :**
 - Create a new structure.
-- Modify a structure in the ‘Inspector’ of the opened file.
+- Modify the structure in the 'Inspector' of the current opened file.
 - Import a existing table structure to create a new table.
 - Support for all field types included **Extended** field types.
