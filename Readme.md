@@ -133,9 +133,7 @@ When a table is saved Otis takes into account active filters, index/orders and s
 - Export to a ';' delimited csv file.\
 When a table is saved Otis takes into account active filters, index/orders and saves only visible fields.\
 This permits to create a sub table with only the fields and data that you want.\
-
 - When you set Otis.exe as the default windows program to open dbf files and double click on it, the main screen 'Dataset manager' of Otis will not be opened. 
-
 >**Index manager :**
 
 - Create a new index, single or compound index files.
