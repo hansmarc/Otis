@@ -3,22 +3,97 @@
 Changelog file : OTIS, Open Table InSpector
 Author         : Hans Marc (Belgium)
 First version  : 22-06-2020
-Last version   : 1.40 b01
-Latest update  : 01-09-2023
+Last version   : 1.50 b01
+Latest update  : 26-02-2024
 --------------------------------------------------------------------------------------------------
 
-
 First of all : THANKS for all your positive remarks, suggestions and bug reports.
+
+26/02/2024  : OTIS V1.50 b01 (released)
+---------------------------------------
+
+Modif : Update Otis_manual.pdf
+
+New   : 'Table inspector'
+        New menu 'Export -> csv' to export a table to a csv file.
+        Why not to Excel will you ask me !
+        1. You can, without any problem, open csv files with Excel.
+        2. Most solutions depends on Excel that must be installed on the same system. Not always the case.
+        3. Speed is very very slow with Ole solutions.
+           Some tests, on my notebook, with a AMD 7480cpu and 32GB.
+              65.000 records took 33 sec., which i consider a lot of time for a small table.
+              4.5 million records took more than 10 min. Far to slow for me.
+           You can imagine the time it will take in a network environment.
+        4. Played around with some xlsx libs but neither of them improved (to small) speed.
+
+        Below some timing values to compare with when exporting to csv on my system :
+           4.5 million records in 33sec.
+           65000 records in 2.5sec.
+        I think that is fast....
+
+New   : 'Table inspector'
+        The codepage used to open a table is also displayed in the title.
+
+New     'Index manager'
+        1. Total number of index / tags is displayed in the tbrowse header.
+        2. New menu to 'Modify' a existing index.
+           You CANNOT change the "FILENAME" and "TAG NAME" because if you do, it will be considered as a "new" index / tag.
+           ALL INDEX / TAGS WILL BE RE-CREATED TO KEEP 'TAG NAMES' AND 'ORDER NUMBERS' SYNCHRONISED.
+           Complete rebuild of all tags is necessary because Harbour behaves as follows. The already existing
+           modified tag (unique, ascending, descending, key, for) is removed and appended as a new tag after the
+           others tags even if you did not change the tag name.
+           Ex. index 1,2,3,4, you modify index 2, index 3,4 shift up and become 2,3 and old index2 with the same old tagname becomes index 4.
+           Result, synchro between the tag names and the order numbers is lost. This out of synchro could create a lot of problems
+           if your are using in your program order numbers ordsetfocus(2) and not tag names ordsetfocus(tagname).
+
+NEW   : 'General'
+(BUG)   The 'Codepage' combobox value used to open dbf tables was never integrated. (sorry forgot it until today).
+        Also corrected to 'append' a table, the codepage of the current opened table is used.
+        Also corrected when a table was saved into another table.
+        You have to set the correct codepage before opening a table.
+
+NEW   : 'General'
+        Implementation of different colors for even/odd lines in all Tbrowse() controls.
+        You can change colors in the 'set_theme()' function.
+
+Modif : 'Table inspector'
+        The main Otis window 'Dataset Manager' is no longer shown if you double click on a dbf file in explorer.
+        Only the 'Inspector' will be shown. It is much more easier to switch with alt-tab between windows if you
+        have multiple dbf opened with Otis by hidding the main window.
+        The main window (dataset manager) is, of course, still shown if you start Otis.exe directly.
+
+Modif : 'Table inspector'
+        Redesign and reorganisation of the top menu buttons in a more logical order and position.
+        The small button '?' on the right of the 'Index Combobox' is removed.
+        You get the same info for all index files as before with button 'Order info (x)' on the left.
+
+Modif : 'Manual'
+        Updated manual with some corrections and comments.
+
+Modif : 'General'
+        Some 'setfocus' improvements to go back to a previous window when the current window is closed.
+
+Modif : 'Structure Editor'
+        Only if you are modifying the structure of the current opened table in the inspector.
+        A warning message is displayed if you delete a field in the structure that is used in a order
+        KEY or FOR expression because this can and will cause problems when you reopen the table with AUTOPEN set.
+        Otis asks also a confirmation before deleting a field.
+
+BUG   : 'Table inspector'
+        Discovered somes problems when you changed to structure of a dbf and saved it to the SAME name.
+        (see previous remarks for version OTIS V1.30 b01 )
+        Otis() quitted with errors because the tbrowse() was not correctly refreshed.
+        Changed some things to solve this problem.
 
 
 01/09/2023  : OTIS V1.40 b01 (released)
 ----------------------------
 
-New   : 'Inspector'
-        'F2' shortcut key toggles de 'Allow Edit' checkbox.
+New   : 'Table Inspector'
+        'F2' shortcut key toggles the 'Allow Edit' checkbox.
         Why F2, because it is a standard windows key and used in some other window programs like Excel.
 
-New   : 'Inspector'
+New   : 'Table Inspector'
         'F5' shortcut key to refresh the tbrowse table.
         Added the function key 'F5' to refresh the tbrowse and a new button (labeled F5) to the right of the index combobox.
         Why, suppose you open a table with Otis. Another program modifies this table, add, delete records, etc.
@@ -91,8 +166,10 @@ Remark: 'Structure Editor'
         3. The Editor can NOT be used when in 'Plugin mode'.
            This to prevent that you modify a structure that is opened by your running program and also in a 'Ghost' area in Otis.
 
-New   : Auto REOPEN in 'Exclusive' when you execute a operation that needs this mode in a table previous opened in 'Shared' mode.
-        This 'new' is only applicable when you open a table in command line mode or file double click mode.
+New   : Auto REOPEN a table in 'Exclusive' mode when you execute a operation like, pack/zap/..., that needs this mode.
+        This is only the case if a table was previously opened in 'Shared' mode and if you open a table
+        in command line mode or file double click mode.
+        *
         A 'impossible' message is displayed if you try to execute a function like pack/zap/reindex/insert/...etc
         on a table that was opened in SHARED mode. Remember those functions needs EXCLUSIVE mode.
         Otis asks if you want to try to reopen the table in EXCLUSIVE mode and if succesfull execute pack/zap/...
@@ -106,7 +183,7 @@ Modif : 'Dataset'
 
 Modif : 'Dataset'
         A getfile() window is opened if you click on the 'Inspector" button when there are no tables in the dataset.
-        The seleted file or selected files will be added to the dataset.
+        The selected file or selected files will be added to the dataset.
         (Before we displayed a message telling you that there were no tables in the dataset.)
 
 Modif : Invalid filelocking value/scheme.
